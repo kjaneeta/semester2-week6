@@ -10,6 +10,8 @@
 void print_all(int count, int *numbers) {
   for (int i = 0; i < count; i++) {
     printf("%d%c", numbers[i], (i == count - 1) ? '\n' : ' ');
+    // printf("format", value1, value2);
+    // condition ? value_if_true : value_if_false
   }
 }
 
