@@ -1,6 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void is_speeding(int driver_speed, int speed_limit) 
+{
+  // Determine if the driver is speeding
+  if (driver_speed > speed_limit) {
+    int excess_speed = driver_speed - speed_limit;
+    int fine = 0;
+
+    // Calculate fine based on how much over the limit
+    if (excess_speed <= 10) {
+      fine = 50;
+    } else if (excess_speed <= 20) {
+      fine = 100;
+    } else {
+      fine = 200;
+    }
+
+    printf("Fine: $%d\n", fine);
+  } else {
+    printf("No fine needed.\n");
+  }
+}
+
 int main() {
   int speed_limit, driver_speed, fine = 0;
   char input[20];
@@ -17,23 +39,7 @@ int main() {
     sscanf(input, "%d", &driver_speed);
   }
 
-  // Determine if the driver is speeding
-  if (driver_speed > speed_limit) {
-    int excess_speed = driver_speed - speed_limit;
-
-    // Calculate fine based on how much over the limit
-    if (excess_speed <= 10) {
-      fine = 50;
-    } else if (excess_speed <= 20) {
-      fine = 100;
-    } else {
-      fine = 200;
-    }
-
-    printf("Fine: $%d\n", fine);
-  } else {
-    printf("No fine needed.\n");
-  }
+  is_speeding(driver_speed, speed_limit);
 
   return 0;
 }
