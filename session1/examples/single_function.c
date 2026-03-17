@@ -3,6 +3,9 @@
 
 int main(int argc, char **argv) {
   // argument check to ensure users have entered some numbers.
+  // * single asterisk = a string (array of characters)
+  // ** double asterisk = array of strings
+  // pointer -> pointer -> characters
   if (argc < 2) {
     printf("Usage: ./averages num1 ... numx\n");
     return 0;
