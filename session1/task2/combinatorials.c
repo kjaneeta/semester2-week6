@@ -30,19 +30,34 @@ int permutation(int n, int r)
 int main(int argc, char **argv) 
 {
 
-  int *n = argv[0];
-  char *calculation = argv[1];
-  int *r = argv[2];
+  if (argc != 4) {
+        printf("Usage: ./combinatorials n C r    or    ./combinatorials n P r\n");
+        return 1;  // Error exit code
+    }
+
+  int n = atoi(argv[1]);
+  char calculation = argv[2][0];
+  int r = atoi(argv[3]);
+
+  if (n < 0 || r < 0 || r > n) {
+        printf("Error: n and r must be non-negative integers, and r <= n\n");
+        return 1;
+    }
 
   if (argv[2] <= argv[0])
   {
-    if (argv[1] == 'C')
+    if (calculation == 'C')
     {
       printf("%d\n", combination(n, r));
     }
-    else if (argv[1] == 'P')
+    else if (calculation == 'P')
     {
       printf("%d\n", permutation(n, r));
+    }
+    else
+    {
+      printf('Error');
+      return 1;
     }
   }
   else
