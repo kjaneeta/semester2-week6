@@ -16,7 +16,41 @@ int factorial(int n) {
   return n * factorial(n - 1);
 }
 
-int main(int argc, char **argv) {
+int combination(int n, int r)
+{
+  return (factorial(n) / (factorial(r)*(factorial(n-r))));
+}
+
+int permutation(int n, int r)
+{
+  return (factorial(n) / (factorial(n-r)));
+}
+
+
+int main(int argc, char **argv) 
+{
+
+  int *n = argv[0];
+  char *calculation = argv[1];
+  int *r = argv[2];
+
+  if (argv[2] <= argv[0])
+  {
+    if (argv[1] == 'C')
+    {
+      printf("%d\n", combination(n, r));
+    }
+    else if (argv[1] == 'P')
+    {
+      printf("%d\n", permutation(n, r));
+    }
+  }
+  else
+  {
+    printf("Usage: ./combinatorials n C r    or    ./combinatorials n P r");
+    return 0;
+  }
+
   /*
   The program should accept a command line argument as follows:
   ./combinatorials n C r
