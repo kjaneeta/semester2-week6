@@ -1,4 +1,7 @@
 /**
+ * Kayla Janeeta Rahardjo
+ * 201967257
+ * 
  * Week 6 Worksheet - Functions Practice
  *
  * This worksheet tests your understanding of:
@@ -49,7 +52,8 @@ int find_max(int *arr, int n, int *index);
  */
 int add_values(int a, int b) {
   // TODO: Implement this function
-  return 0; // Replace this
+
+  return a+b;
 }
 
 /**
@@ -70,6 +74,10 @@ int add_values(int a, int b) {
 void swap_values(int *a, int *b) {
   // TODO: Implement this function
   // Hint: You'll need a temporary variable
+
+  int temp = *a;
+  *a = *b;
+  *b = temp;
 }
 
 /**
@@ -86,7 +94,13 @@ void swap_values(int *a, int *b) {
  */
 int sum_array(int *arr, int n) {
   // TODO: Implement this function
-  return 0; // Replace this
+  int sum = 0;
+  for(int i = 0; i < n; ++i)
+  {
+    sum = sum + arr[i];
+  }
+
+  return sum; 
 }
 
 /**
@@ -107,6 +121,12 @@ int sum_array(int *arr, int n) {
  */
 void reverse_array(int *arr, int n) {
   // TODO: Implement this function
+  for(int i = 0; i < (n/2); ++i)
+  {
+    int temp = arr[i];
+    arr[i] = arr[(n-1)-i];
+    arr[(n-1)-i] = arr[i];
+  }
 }
 
 /**
@@ -125,7 +145,9 @@ void reverse_array(int *arr, int n) {
 double average(int *arr, int n) {
   // TODO: Implement this function
   // Hint: Be careful with integer division!
-  return 0.0; // Replace this
+  int sum = sum_array(*arr, n);
+  double avg = sum/n;
+  return avg;
 }
 
 /**
@@ -149,7 +171,16 @@ double average(int *arr, int n) {
 int find_max(int *arr, int n, int *index) {
   // TODO: Implement this function
   *index = 0;
-  return 0; // Replace this
+  int max = arr[*index];
+  for(int i = 1; i < n; ++i)
+  {
+    if (arr[i] > max)
+    {
+      max = arr[i];
+      *index = i;
+    }
+  }
+  return max; 
 }
 
 /* ============================================================
