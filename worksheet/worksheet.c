@@ -125,7 +125,7 @@ void reverse_array(int *arr, int n) {
   {
     int temp = arr[i];
     arr[i] = arr[(n-1)-i];
-    arr[(n-1)-i] = arr[i];
+    arr[(n-1)-i] = temp;
   }
 }
 
@@ -145,8 +145,8 @@ void reverse_array(int *arr, int n) {
 double average(int *arr, int n) {
   // TODO: Implement this function
   // Hint: Be careful with integer division!
-  int sum = sum_array(*arr, n);
-  double avg = sum/n;
+  int sum = sum_array(arr, n);
+  double avg = (double) sum/n;
   return avg;
 }
 
